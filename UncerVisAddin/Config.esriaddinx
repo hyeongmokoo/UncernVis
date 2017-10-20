@@ -1,0 +1,49 @@
+﻿<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>UncerVisAddin</Name>
+  <AddInID>{7cb0712d-c1ae-426b-a2d5-5033fba302fd}</AddInID>
+  <Description>Uncertainty visualization based on bivariate mapping</Description>
+  <Version>1.0</Version>
+  <Image>Images\UncerVisAddin.png</Image>
+  <Author>Hyeongmo Koo</Author>
+  <Company>UTD</Company>
+  <Date>6/15/2015</Date>
+  <Targets>
+    <Target name="Desktop" version="10.1" />
+  </Targets>
+  <AddIn language="CLR4.0" library="UncerVisAddin.dll" namespace="UncerVisAddin">
+    <ArcMap>
+      <Commands>
+        <Button id="UTD_UncerVisAddin_ColorProp" class="ColorProp" message="Propertional symbol with coloring properties for extrinsic variables" caption="Coloring Properties" tip="Propertional symbol with coloring properties for extrinsic variables" category="Add-In Controls" />
+        <Button id="UTD_UncerVisAddin_OverSymbols" class="OverSymbols" message="Overlaid Symbols on a choropleth map for intrinsic variables" caption="Overlaid Symbols" tip="Overlaid Symbols on a choropleth map for intrinsic variables" category="Add-In Controls" />
+        <Button id="UTD_UncerVisAddin_CompositeSymbols" class="CompositeSymbols" message="Composite symbols for intrinsic variables" caption="Composite Symbols" tip="Composite symbols for intrinsic variables" category="Add-In Controls" />
+      </Commands>
+      <DockableWindows>
+        <DockableWindow id="UTD_UncerVisAddin_ColPropWin" class="ColPropWin+AddinImpl" caption="Coloring properties to propertional symbols" image="Images\ColPropWin.png">
+          <InitialPlacement height="248" width="377" state="unpinned" position="left" />
+        </DockableWindow>
+        <DockableWindow id="UTD_UncerVisAddin_OverSymbolWin" class="OverSymbolWin+AddinImpl" caption="Overlaid symbols on choropleth map" image="Images\OverSymbolWin.png">
+          <InitialPlacement height="281" width="597" state="unpinned" position="left" />
+        </DockableWindow>
+        <DockableWindow id="UTD_UncerVisAddin_CompositeSymWin" class="CompositeSymWin+AddinImpl" caption="Composite symbols" image="Images\CompositeSymWin.png">
+          <InitialPlacement height="285" width="424" state="unpinned" position="left" />
+        </DockableWindow>
+      </DockableWindows>
+      <Menus>
+        <Menu id="UTD_UncerVisAddin_Methods" caption="Methods" isRootMenu="false">
+          <Items>
+            <Button refID="UTD_UncerVisAddin_ColorProp" />
+            <Button refID="UTD_UncerVisAddin_OverSymbols" />
+            <Button refID="UTD_UncerVisAddin_CompositeSymbols" />
+          </Items>
+        </Menu>
+      </Menus>
+      <Toolbars>
+        <Toolbar id="UTD_UncerVisAddin_Uncertainty_Visualization" caption="Uncertainty Visualization" showInitially="false">
+          <Items>
+            <Menu refID="UTD_UncerVisAddin_Methods" />
+          </Items>
+        </Toolbar>
+      </Toolbars>
+    </ArcMap>
+  </AddIn>
+</ESRI.Configuration>
